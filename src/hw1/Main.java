@@ -1,6 +1,7 @@
 package hw1;
 
 import hw1.zad1.CircularArray;
+import hw1.zad2.LinkedListQueue;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -39,5 +40,24 @@ public class Main {
 
         circularArray.removeFromEnd(2);
         Assert.assertArrayEquals(new Integer[]{}, circularArray.toArray());
+    }
+
+    @Test
+    public void testLinkedListQueue() {
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+
+        linkedListQueue.add(1);
+        linkedListQueue.add(2);
+        linkedListQueue.add(3);
+        linkedListQueue.add(4);
+        linkedListQueue.add(5);
+
+        Assert.assertEquals(5, linkedListQueue.size());
+
+        Assert.assertEquals(1, linkedListQueue.poll().intValue());
+        Assert.assertEquals(4, linkedListQueue.size());
+
+        Assert.assertEquals(2, linkedListQueue.peek().intValue());
+        Assert.assertEquals(4, linkedListQueue.size());
     }
 }
