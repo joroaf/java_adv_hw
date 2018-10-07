@@ -3,6 +3,7 @@ package hw1.zad1;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.concurrent.Callable;
 
 public class CircularArray<T> extends ArrayList<T> {
 
@@ -48,22 +49,24 @@ public class CircularArray<T> extends ArrayList<T> {
     }
 
     public void removeFromEnd(int numOfElements) {
-        if (numOfElements > size()) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-
-        for (int i = 1; i <= numOfElements; i++) {
-            remove(size() - i);
-        }
+        removeFrom(numOfElements, () -> size() - 1);
     }
 
     public void removeFromStart(int numOfElements) {
-        if (numOfElements > size()) {
+        removeFrom(numOfElements, () -> 0);
+    }
+
+    private void removeFrom(int numOfElements, Callable<Integer> idx) {
+        if (numOfElements > size() || numOfElements < 1) {
             throw new ArrayIndexOutOfBoundsException();
         }
 
         for (int i = 0; i < numOfElements; i++) {
-            remove(i);
+            try {
+                remove(idx.call().intValue());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

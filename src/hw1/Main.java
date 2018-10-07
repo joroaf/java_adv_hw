@@ -33,5 +33,11 @@ public class Main {
 
         Assert.assertArrayEquals(new Integer[]{1, 2, 3, 4}, circularArray.toArray());
         Assert.assertEquals(4, circularArray.size());
+
+        circularArray.removeFromStart(2);
+        Assert.assertArrayEquals(new Integer[]{3, 4}, circularArray.toArray());
+
+        circularArray.removeFromEnd(2);
+        Assert.assertArrayEquals(new Integer[]{}, circularArray.toArray());
     }
 }
