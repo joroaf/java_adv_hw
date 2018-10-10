@@ -2,8 +2,11 @@ package hw1;
 
 import hw1.zad1.CircularArray;
 import hw1.zad2.LinkedListQueue;
+import hw1.zad3.LamdasHW;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Arrays;
 
 public class Main {
 
@@ -59,5 +62,24 @@ public class Main {
 
         Assert.assertEquals(2, linkedListQueue.peek().intValue());
         Assert.assertEquals(4, linkedListQueue.size());
+    }
+
+    @Test
+    public void testHW3Lambdas() {
+
+        // Test Sorting
+        Integer[] arr = new Integer[]{3, 2, 1};
+        LamdasHW.modifyArray(Arrays::sort, arr);
+        Assert.assertArrayEquals(new Integer[]{1, 2, 3}, arr);
+
+        // Test Reversing
+        LamdasHW.modifyArray((inArr) -> {
+            for (int i = 0; i < inArr.length / 2; i++) {
+                int temp = inArr[i];
+                inArr[i] = inArr[inArr.length - i - 1];
+                inArr[inArr.length - i - 1] = temp;
+            }
+        }, arr);
+        Assert.assertArrayEquals(new Integer[]{3, 2, 1}, arr);
     }
 }
