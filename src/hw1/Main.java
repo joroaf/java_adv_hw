@@ -3,6 +3,7 @@ package hw1;
 import hw1.zad1.CircularArray;
 import hw1.zad2.LinkedListQueue;
 import hw1.zad3.LamdasHW;
+import hw1.zad4.Point;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -81,5 +82,18 @@ public class Main {
             }
         }, arr);
         Assert.assertArrayEquals(new Integer[]{3, 2, 1}, arr);
+    }
+
+    @Test
+    public void testHW3Point() {
+        Point p1 = new Point(1, 3);
+        Point p2 = new Point(2, 2);
+        Point p3 = new Point(1, 1);
+
+        Point[] arr = new Point[]{p1, p2, p3};
+
+        LamdasHW.modifyArray(Arrays::sort, arr);
+
+        Assert.assertArrayEquals(new Point[]{p3, p1, p2}, arr);
     }
 }
