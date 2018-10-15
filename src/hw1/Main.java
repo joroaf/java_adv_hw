@@ -2,12 +2,8 @@ package hw1;
 
 import hw1.zad1.CircularArray;
 import hw1.zad2.LinkedListQueue;
-import hw2.zad3.LamdasHW;
-import hw2.zad4.Point;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.Arrays;
 
 public class Main {
 
