@@ -28,19 +28,22 @@ public class Point implements Comparable<Point> {
 
     @Override
     public int compareTo(Point o) {
-        if (x - o.x > 0 || y - o.y > 0)
-            return 1;
-        else if (y - o.y < 0 || x - o.x < 0)
-            return -1;
-        else
-            return 0;
+        return Double.compare(distanceFromZero(), o.distanceFromZero());
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public static Point[] createRandomPointsArray(int capacity) {
         Point[] arr = new Point[capacity];
         Random rand = new Random();
 
-        Arrays.setAll(arr, value -> new Point(rand.nextInt(), rand.nextInt()));
+        Arrays.setAll(arr, value -> new Point(rand.nextInt(100), rand.nextInt(100)));
         return arr;
     }
 
@@ -51,5 +54,9 @@ public class Point implements Comparable<Point> {
 
     public static int indexOf(Point[] array, Point element) {
         return Arrays.asList(array).indexOf(element);
+    }
+
+    public double distanceFromZero() {
+        return Math.sqrt(Math.pow(0 - x, 2) + Math.pow(0 - y, 2));
     }
 }
