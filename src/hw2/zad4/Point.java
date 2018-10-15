@@ -1,4 +1,4 @@
-package hw1.zad4;
+package hw2.zad4;
 
 public class Point implements Comparable<Point> {
     private int x;

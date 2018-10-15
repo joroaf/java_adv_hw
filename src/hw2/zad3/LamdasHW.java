@@ -1,4 +1,4 @@
-package hw1.zad3;
+package hw2.zad3;
 
 
 public class LamdasHW {
