@@ -21,6 +21,7 @@ public class Main {
                 if (f.isDirectory()) {
                     System.out.println(pading + " (dir) " + f.getName());
                     walkin(f, ++depth);
+                    depth--;
                 } else {
                     System.out.println(pading + " (file) " + f.getName() + " " + f.length() / 1000 + " KB");
                 }
